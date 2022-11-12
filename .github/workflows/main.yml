@@ -5,7 +5,7 @@ on:
     tags:
       - 'v*'
   pull_request:
-    branches: [ hml ]
+    branches: [hml]
     tags:
       - 'v*'
 
@@ -14,20 +14,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      -
-        name: Verificando action
+      - name: Verificando action
         uses: actions/checkout@v2
-      -
-        name: Realizando login no Docker Hub
+      - name: Realizando login no Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      -
-        name: Configurando o docker Buildx
+      - name: Configurando o docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Criando build e publicando
+      - name: Criando build e publicando
         uses: docker/build-push-action@v2
         with:
           context: ./

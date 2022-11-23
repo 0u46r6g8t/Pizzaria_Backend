@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ICreatedPizzaDTO } from 'src/v1/modules/pizza/dtos/ICreatedPizza.DTO';
 import { IUpdatedPizzaDTO } from 'src/v1/modules/pizza/dtos/IUpdatedPizza.DTO';
-import { IRepositoryPizza } from 'src/v1/modules/pizza/repositories/Pizza.repository';
+import IRepositoryPizza from 'src/v1/modules/pizza/repositories/Pizza.repository';
 import { EntityPizza } from 'src/v1/modules/pizza/typeorm/entities/Pizza.entity';
 import { RepositoryPizza } from 'src/v1/modules/pizza/typeorm/repositories/Pizza.repository';
+import * as pizzaService from './CRUD/pizza';
 
 @Injectable()
 export class ServicePizza {
@@ -14,7 +15,10 @@ export class ServicePizza {
   ) {}
 
   async createPizza(data: ICreatedPizzaDTO): Promise<EntityPizza> {
-    return this.repositoryPizza.createPizza(data);
+    return pizzaService.create({
+      data,
+      repository: this.repositoryPizza,
+    });
   }
 
   async updatePizza(data: IUpdatedPizzaDTO): Promise<EntityPizza> {
@@ -22,7 +26,10 @@ export class ServicePizza {
   }
 
   async removePizza(id: string): Promise<void> {
-    return this.repositoryPizza.removePizza(id);
+    return pizzaService.deletePizza({
+      data: id,
+      repository: this.repositoryPizza,
+    });
   }
 
   async findByName(name: string): Promise<EntityPizza> {

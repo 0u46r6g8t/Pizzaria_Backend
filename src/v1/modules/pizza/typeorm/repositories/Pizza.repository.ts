@@ -1,6 +1,6 @@
 import { ICreatedPizzaDTO } from 'src/v1/modules/pizza/dtos/ICreatedPizza.DTO';
 import { IUpdatedPizzaDTO } from 'src/v1/modules/pizza/dtos/IUpdatedPizza.DTO';
-import { IRepositoryPizza } from 'src/v1/modules/pizza/repositories/Pizza.repository';
+import IRepositoryPizza from 'src/v1/modules/pizza/repositories/Pizza.repository';
 import { EntityPizza } from 'src/v1/modules/pizza/typeorm/entities/Pizza.entity';
 import { EntityRepository, getRepository, Repository } from 'typeorm';
 

@@ -1,1 +1,1 @@
-web: yarn start:prod
+web: docker-compose up --build

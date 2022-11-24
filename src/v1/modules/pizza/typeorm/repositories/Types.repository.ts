@@ -4,8 +4,8 @@ import IRepositoryTypes from 'src/v1/modules/pizza/repositories/Types.repository
 import EntityTypes from 'src/v1/modules/pizza/typeorm/entities/Types.entity';
 import { EntityRepository, getRepository, Repository } from 'typeorm';
 
-@EntityRepository()
-export default class RepositoryTypes
+@EntityRepository(EntityTypes)
+export class RepositoryTypes
   extends Repository<IRepositoryTypes>
   implements IRepositoryTypes
 {

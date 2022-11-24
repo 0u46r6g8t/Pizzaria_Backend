@@ -1,5 +1,5 @@
 import { ConflictException } from '@nestjs/common';
-import { ICreatedPizzaDTO } from 'src/v1/modules/pizza/dtos/ICreatedPizza.DTO';
+import { ICreatedPizzaDTO } from 'src/v1/modules/pizza/dtos/pizza/ICreatedPizza.DTO';
 import IRepositoryPizza from 'src/v1/modules/pizza/repositories/Pizza.repository';
 import { EntityPizza } from 'src/v1/modules/pizza/typeorm/entities/Pizza.entity';
 

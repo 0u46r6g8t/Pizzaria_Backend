@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import Controllers from 'src/v1/modules/pizza/controller';
-import { ServicePizza } from 'src/v1/modules/pizza/services/pizza.service';
+import Services from 'src/v1/modules/pizza/services';
 import typeorm from 'src/v1/modules/pizza/typeorm';
 
 @Module({
   imports: [typeorm],
-  providers: [ServicePizza],
+  providers: [...Services],
   controllers: [...Controllers],
 })
 export class ModulePizza {}

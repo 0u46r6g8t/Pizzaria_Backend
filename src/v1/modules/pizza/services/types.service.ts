@@ -4,7 +4,8 @@ import { ICreatedTypesDTO } from 'src/v1/modules/pizza/dtos/types/ICreatedTypes.
 import { IUpdatedTypesDTO } from 'src/v1/modules/pizza/dtos/types/IUpdatedTypes.DTO';
 import IRepositoryTypes from 'src/v1/modules/pizza/repositories/Types.repository';
 import EntityTypes from 'src/v1/modules/pizza/typeorm/entities/Types.entity';
-import RepositoryTypes from 'src/v1/modules/pizza/typeorm/repositories/Types.repository';
+import { RepositoryTypes } from 'src/v1/modules/pizza/typeorm/repositories/Types.repository';
+import * as typesService from './CRUD/types';
 
 @Injectable()
 export class ServiceTypes {
@@ -14,7 +15,10 @@ export class ServiceTypes {
   ) {}
 
   public create(data: ICreatedTypesDTO): Promise<EntityTypes> {
-    return this.repositoryTypes.createTypes(data);
+    return typesService.create({
+      data,
+      repository: this.repositoryTypes,
+    });
   }
 
   public update(data: IUpdatedTypesDTO): Promise<EntityTypes> {
@@ -22,7 +26,10 @@ export class ServiceTypes {
   }
 
   public remove(id: string): Promise<void> {
-    return this.repositoryTypes.removeTypes(id);
+    return typesService.deleteTypes({
+      repository: this.repositoryTypes,
+      data: id,
+    });
   }
 
   public findById(id: string): Promise<EntityTypes> {

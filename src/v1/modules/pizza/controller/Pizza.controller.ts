@@ -17,8 +17,8 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { ICreatedPizzaDTO } from 'src/v1/modules/pizza/dtos/ICreatedPizza.DTO';
-import { IUpdatedPizzaDTO } from 'src/v1/modules/pizza/dtos/IUpdatedPizza.DTO';
+import { ICreatedPizzaDTO } from 'src/v1/modules/pizza/dtos/pizza/ICreatedPizza.DTO';
+import { IUpdatedPizzaDTO } from 'src/v1/modules/pizza/dtos/pizza/IUpdatedPizza.DTO';
 import { ServicePizza } from 'src/v1/modules/pizza/services/pizza.service';
 import { EntityPizza } from 'src/v1/modules/pizza/typeorm/entities/Pizza.entity';
 
@@ -79,7 +79,7 @@ export class ControllerPizza {
     summary: 'Find one Pizza',
   })
   @UsePipes(new ValidationPipe())
-  @Get('/name/')
+  @Get('/name/:name')
   public findByName(@Query('name') name: string): Promise<EntityPizza> {
     return this.servicePizza.findByName(name);
   }
@@ -88,7 +88,7 @@ export class ControllerPizza {
     summary: 'Find one Pizza by id',
   })
   @UsePipes(new ValidationPipe())
-  @Get('/id/')
+  @Get('/id/:id')
   public findById(@Query('id') id: string): Promise<EntityPizza> {
     return this.servicePizza.findById(id);
   }
@@ -97,7 +97,7 @@ export class ControllerPizza {
     summary: 'Find one Pizza by Size',
   })
   @UsePipes(new ValidationPipe())
-  @Get('/size/')
+  @Get('/size/:size')
   public findBySize(@Query('size') size: string): Promise<EntityPizza> {
     return this.servicePizza.findBySize(size);
   }

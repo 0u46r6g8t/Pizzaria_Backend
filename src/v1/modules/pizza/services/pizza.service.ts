@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ICreatedPizzaDTO } from 'src/v1/modules/pizza/dtos/ICreatedPizza.DTO';
-import { IUpdatedPizzaDTO } from 'src/v1/modules/pizza/dtos/IUpdatedPizza.DTO';
+import { ICreatedPizzaDTO } from 'src/v1/modules/pizza/dtos/pizza/ICreatedPizza.DTO';
+import { IUpdatedPizzaDTO } from 'src/v1/modules/pizza/dtos/pizza/IUpdatedPizza.DTO';
 import IRepositoryPizza from 'src/v1/modules/pizza/repositories/Pizza.repository';
 import { EntityPizza } from 'src/v1/modules/pizza/typeorm/entities/Pizza.entity';
 import { RepositoryPizza } from 'src/v1/modules/pizza/typeorm/repositories/Pizza.repository';

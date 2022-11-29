@@ -1,0 +1,7 @@
+1 - Interface e os DTOS (DTOs)
+2 - IRepository (repositories)
+3 - Entity (typeorm/entities)
+4 - Repository (typeorm/repositories)
+5 - Service (services)
+6 - Services Especific (services/CRUD)
+7 - Controllers
